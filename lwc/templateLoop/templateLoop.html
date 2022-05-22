@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Template Looping CarList" icon-name="custom:custom4">
+        <ul class="slds-m-around-medium">
+            <template for:each={carList} for:item="car">
+                <a href="#" key={car} class="list-group-item list-group-item-action">{car}</a>
+            </template>
+        </ul>
+    </lightning-card>
+    <br></br>
+    <lightning-card title="Template Loop Language Array of Objects" icon-name="custom:custom14">
+        <ul class="slds-m-around-medium">
+            <template for:each={programList} for:item="program">
+                <a href="#" key={program.id} class="list-group-item list-group-item-action">{program.language}</a>
+            </template>
+        </ul>
+    </lightning-card>
+    <br></br>
+    <lightning-card title="Template loop CEO Iterator" icon-name="custom:custom10">
+        <ul class="slds-m-around-medium">
+            <div class="list-group-inline">
+                <template iterator:ceo={ceoList}>
+                    <div key={ceo.value.id}>
+                        <a href="#" if:true={ceo.first} 
+                        class="list-group-item list-group-item-action header">
+                        <strong>List of CEO of Company</strong></a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                        <strong>{ceo.value.company} : </strong>{ceo.value.name}</a>
+                        <a href="#" if:true={ceo.last}
+                        class="list-group-item list-group-item-action footer">
+                        <strong>&copy; Salesforce by Akash</strong></a>
+                    </div>
+                </template>
+            </div>
+        </ul>
+    </lightning-card>
+</template>
